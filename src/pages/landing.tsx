@@ -1,25 +1,37 @@
 import React from "react";
-import { Layout, Menu } from "antd";
+import { Button, Col, Layout, Row } from "antd";
 import { Link } from "react-router-dom";
+import "./landing.css";
 
 const { Header, Content } = Layout;
 
 const LandingPage: React.FC = () => {
   return (
-    <Layout>
+    <Layout style={{ margin: "0px", padding: "0px" }}>
       <Header>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1">
-            <Link to="/signin">Sign In</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Link to="/signup">Sign Up</Link>
-          </Menu.Item>
-        </Menu>
+        <Row justify={"end"}>
+          <Col xs={2}>
+            <Link to="/signin">
+              <Button>Sign In</Button>
+            </Link>
+          </Col>
+          <Col xs={2}>
+            <Link to="/signup">
+              <Button>Sign Up</Button>
+            </Link>
+          </Col>
+        </Row>
       </Header>
-      <Content style={{ padding: "50px" }}>
-        <h1>Welcome to NeYaşadın!</h1>
-        <p>This is the landing page content.</p>
+      <Content style={{ padding: "30px" }}>
+        <Row
+          justify={"center"}
+          align={"middle"}
+          style={{ height: "100vh", width: "100%" }}
+        >
+          <Col>
+            <h1>Welcome to NeYaşadın!</h1>
+          </Col>
+        </Row>
       </Content>
     </Layout>
   );

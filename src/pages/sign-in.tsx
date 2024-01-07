@@ -1,5 +1,7 @@
 import React from "react";
 import { Form, Input, Button } from "antd";
+import { Link } from "react-router-dom";
+import { LeftOutlined } from "@ant-design/icons";
 
 const SignIn: React.FC = () => {
   const onFinish = (values: { email: string; password: string }) => {
@@ -9,6 +11,12 @@ const SignIn: React.FC = () => {
 
   return (
     <>
+      <Link to="/">
+        <Button>
+          <LeftOutlined />
+          <span>Back</span>
+        </Button>
+      </Link>
       <h1>NeYaşadın?</h1>
       <Form onFinish={onFinish}>
         <Form.Item
