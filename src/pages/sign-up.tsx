@@ -3,7 +3,7 @@ import { Tabs, Input, Button, Select, Row, Col } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Company } from "../interfaces/company";
+import { Company } from "../interfaces/models";
 import "./general.css";
 
 const { TabPane } = Tabs;
@@ -97,7 +97,7 @@ const SignUp: React.FC = () => {
   return (
     <Row style={{ padding: "30px", height: "100vh" }}>
       <Col xs={24}>
-        <Row>
+        <Row justify={"end"}>
           <Col>
             <Link to="/">
               <Button>
