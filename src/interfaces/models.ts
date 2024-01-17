@@ -50,6 +50,7 @@ export interface Solution {
   companyAgent: CompanyAgent;
   complaintId: number;
   complaint: Complaint;
+  content: string;
 }
 
 export interface CompanyAgent {
@@ -69,6 +70,8 @@ export interface Comment {
   content: string;
   complaintId: number;
   complaint: Complaint;
+  customerId: Customer;
+  customer: Customer;
 }
 
 export interface Subscription {
