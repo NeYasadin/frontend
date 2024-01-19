@@ -6,12 +6,16 @@ import SignUp from "./pages/sign-up";
 import CompanyAgentPage from "./pages/company-agent-page";
 import { QueryClientProvider } from "react-query";
 import queryClient from "./utils/queryClient";
+import CompanyAgentDetails from "./pages/company-agent-details";
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
         <Switch>
+          <Route path="/company-agent/details/:id">
+            <CompanyAgentDetails />
+          </Route>
           <Route path="/company-agent/:id">
             <CompanyAgentPage />
           </Route>

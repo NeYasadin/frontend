@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Tabs, Input, Button, Select, Row, Col } from "antd";
+import { Tabs, Input, Button, Select, Row, Col, message } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { Company } from "../interfaces/models";
 import "./general.css";
@@ -18,6 +18,8 @@ const SignUp: React.FC = () => {
   const [companyId, setCompanyId] = useState<number>(0);
   const [companies, setCompanies] = useState<Company[]>([]);
   const [loading, setLoading] = useState(true);
+  const [messageApi, contextHolder] = message.useMessage();
+  const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -88,113 +90,126 @@ const SignUp: React.FC = () => {
         "http://localhost:3000/company-agent/",
         obj
       );
+      messageApi.open({
+        type: "success",
+        content: "Successfully signed up!",
+      });
+      setTimeout(() => {
+        history.push(`/signin`);
+      }, 2500);
       console.log(response);
     } catch (err) {
-      console.log(err);
+      messageApi.open({
+        type: "error",
+        content: "Successfully signed up!",
+      });
     }
   };
 
   return (
-    <Row style={{ padding: "30px", height: "100vh" }}>
-      <Col xs={24}>
-        <Row justify={"end"}>
-          <Col>
-            <Link to="/">
-              <Button>
-                <LeftOutlined />
-                <span>Back</span>
-              </Button>
-            </Link>
-          </Col>
-        </Row>
-      </Col>
-      <Col xs={24}>
-        <Tabs activeKey={activeTab} onChange={handleTabChange}>
-          <TabPane tab="Customer" key="customer">
-            <Col className="p-20">
-              <Input
-                placeholder="Name"
-                value={name}
-                onChange={handleNameChange}
-              />
+    <>
+      {contextHolder}
+      <Row style={{ padding: "30px", height: "100vh" }}>
+        <Col xs={24}>
+          <Row justify={"end"}>
+            <Col>
+              <Link to="/">
+                <Button>
+                  <LeftOutlined />
+                  <span>Back</span>
+                </Button>
+              </Link>
             </Col>
-            <Col className="p-20">
-              <Input
-                placeholder="Email"
-                value={mail}
-                onChange={handleEmailChange}
-              />
-            </Col>
-            <Col className="p-20">
-              <Input.Password
-                placeholder="Password"
-                value={password}
-                onChange={handlePasswordChange}
-              />
-            </Col>
-            <Col className="p-20">
-              <Input
-                placeholder="Phone Number"
-                value={phoneNumber}
-                onChange={handlePhoneNumberChange}
-              />
-            </Col>
-          </TabPane>
-          <TabPane tab="Company Agent" key="companyAgent">
-            <Col className="p-20">
-              <Input
-                placeholder="Name"
-                value={name}
-                onChange={handleNameChange}
-              />
-            </Col>
-            <Col className="p-20">
-              <Input
-                placeholder="Email"
-                value={mail}
-                onChange={handleEmailChange}
-              />
-            </Col>
-            <Col className="p-20">
-              <Input.Password
-                placeholder="Password"
-                value={password}
-                onChange={handlePasswordChange}
-              />
-            </Col>
-            <Col className="p-20" xs={24}>
-              <Select
-                placeholder="No Company"
-                onChange={handleCompanyChange}
-                style={{ width: "100%" }}
-              >
-                {loading === false &&
-                  companies.map((company) => (
-                    <Option key={company.id} value={company.id}>
-                      {company.name}
-                    </Option>
-                  ))}
-                <Option key="noCompany" value={0}>
-                  No Company
-                </Option>
-              </Select>
-            </Col>
-          </TabPane>
-        </Tabs>
-      </Col>
-      <Col xs={24}>
-        <Button
-          type="primary"
-          onClick={
-            activeTab === "customer"
-              ? handleSignUpCustomer
-              : handleSignUpCompanyAgent
-          }
-        >
-          Sign Up
-        </Button>
-      </Col>
-    </Row>
+          </Row>
+        </Col>
+        <Col xs={24}>
+          <Tabs activeKey={activeTab} onChange={handleTabChange}>
+            <TabPane tab="Customer" key="customer">
+              <Col className="p-20">
+                <Input
+                  placeholder="Name"
+                  value={name}
+                  onChange={handleNameChange}
+                />
+              </Col>
+              <Col className="p-20">
+                <Input
+                  placeholder="Email"
+                  value={mail}
+                  onChange={handleEmailChange}
+                />
+              </Col>
+              <Col className="p-20">
+                <Input.Password
+                  placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+              </Col>
+              <Col className="p-20">
+                <Input
+                  placeholder="Phone Number"
+                  value={phoneNumber}
+                  onChange={handlePhoneNumberChange}
+                />
+              </Col>
+            </TabPane>
+            <TabPane tab="Company Agent" key="companyAgent">
+              <Col className="p-20">
+                <Input
+                  placeholder="Name"
+                  value={name}
+                  onChange={handleNameChange}
+                />
+              </Col>
+              <Col className="p-20">
+                <Input
+                  placeholder="Email"
+                  value={mail}
+                  onChange={handleEmailChange}
+                />
+              </Col>
+              <Col className="p-20">
+                <Input.Password
+                  placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+              </Col>
+              <Col className="p-20" xs={24}>
+                <Select
+                  placeholder="No Company"
+                  onChange={handleCompanyChange}
+                  style={{ width: "100%" }}
+                >
+                  {loading === false &&
+                    companies.map((company) => (
+                      <Option key={company.id} value={company.id}>
+                        {company.name}
+                      </Option>
+                    ))}
+                  <Option key="noCompany" value={0}>
+                    No Company
+                  </Option>
+                </Select>
+              </Col>
+            </TabPane>
+          </Tabs>
+        </Col>
+        <Col xs={24}>
+          <Button
+            type="primary"
+            onClick={
+              activeTab === "customer"
+                ? handleSignUpCustomer
+                : handleSignUpCompanyAgent
+            }
+          >
+            Sign Up
+          </Button>
+        </Col>
+      </Row>
+    </>
   );
 };
 

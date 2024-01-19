@@ -1,7 +1,7 @@
 import { Row, Col } from "antd"; // Replace with your card component library
 import { FC } from "react";
 import { Complaint } from "../interfaces/models";
-import ComplaintCard from "./complaint-card";
+import ComplaintCard from "../pages/complaint-card";
 
 type Props = {
   complaints: Complaint[];

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
-import CompanyAgentFeed from "./company-agent-feed";
-import CompanyAgentNavbar from "./company-agent-navbar";
+import CompanyAgentFeed from "../components/company-agent-feed";
+import CompanyAgentNavbar from "../components/company-agent-navbar";
 import { Row, Col } from "antd";
 import axios from "axios";
 import { useQuery } from "react-query";
@@ -11,11 +11,9 @@ const CompanyAgentPage: FC = () => {
 
   const fetchData = async () => {
     try {
-      console.log(id);
       const response = await axios.get(
         `http://localhost:3000/company-agent/${id}`
       );
-      console.log(response.data);
       return response.data;
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -23,7 +21,6 @@ const CompanyAgentPage: FC = () => {
     const response = await axios.get("http://localhost:3000/company-agent/", {
       params: { id },
     });
-    console.log(response.data);
     return response.data;
   };
 
@@ -40,8 +37,6 @@ const CompanyAgentPage: FC = () => {
     enabled: !!companyAgent,
   });
   const complaints = complaintsData?.complaints;
-  console.log("complaints", complaints);
-
   return (
     <Row>
       <Col xs={24}>
