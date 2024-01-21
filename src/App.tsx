@@ -8,7 +8,7 @@ import { QueryClientProvider } from "react-query";
 import queryClient from "./utils/queryClient";
 import CompanyAgentDetails from "./pages/company-agent-details";
 import CompanyAgentUpdate from "./pages/company-agent-update";
-import CreateCompany from "./pages/create-company";
+import CompanyCreate from "./pages/company-create";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Switch>
           <Route path={"/company-agent/create-company/:id"}>
-            <CreateCompany />
+            <CompanyCreate />
           </Route>
           <Route path="/company-agent/update/:id">
             <CompanyAgentUpdate />

@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { Row, Col, Form, Input, message } from "antd";
+import { Row, Col, Form, Input, message, Button } from "antd";
 import axios from "axios";
 import CompanyAgentNavbar from "../components/company-agent-navbar";
 import { useParams } from "react-router-dom";
 
-const CreateCompany: FC = () => {
+const CompanyCreate: FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const { id } = useParams<{ id: string }>();
   const onFinish = async (values: {
@@ -52,7 +52,7 @@ const CreateCompany: FC = () => {
         <Col xs={24}>
           <CompanyAgentNavbar companyAgentId={parseInt(id)} />
         </Col>
-        <Col>
+        <Col xs={8} style={{ padding: "30px" }}>
           <Form onFinish={onFinish}>
             <Form.Item label="Name" name="name">
               <Input />
@@ -79,7 +79,9 @@ const CreateCompany: FC = () => {
               <Input />
             </Form.Item>
             <Form.Item>
-              <button type="submit">Create Company</button>
+              <Button type="primary" htmlType="submit">
+                Create Company
+              </Button>
             </Form.Item>
           </Form>
         </Col>
@@ -88,4 +90,4 @@ const CreateCompany: FC = () => {
   );
 };
 
-export default CreateCompany;
+export default CompanyCreate;
