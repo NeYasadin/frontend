@@ -58,6 +58,22 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
     if (key == "exit") {
       history.push("/");
     }
+    if (key == "create-company") {
+      history.push("/company-agent/create-company");
+    }
+    if (key == "update-company") {
+      history.push("/company-agent/update-company");
+    }
+    if (key == "subscription") {
+      history.push("/company-agent/subscription");
+    }
+    if (key == "account-details") {
+      history.push(`/company-agent/details/${companyAgentId}`);
+    }
+    if (key == "update-account") {
+      console.log(`/company-agent/update/${companyAgentId}`);
+      history.push(`/company-agent/update/${companyAgentId}`);
+    }
   };
 
   return (
@@ -65,6 +81,7 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
       style={{ background: "#5C5AD1", height: "10vh" }}
       gutter={[16, 16]}
       align={"middle"}
+      justify={"center"}
     >
       <Col xs={8}>
         <Link
@@ -75,9 +92,9 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
         </Link>
       </Col>
       <Col xs={16}>
-        <Row justify={"end"} gutter={[16, 16]}>
+        <Row justify={"center"} align={"middle"} gutter={[16, 16]}>
           <Col xs={24}>
-            <div style={{ justifyContent: "end", alignContent: "center" }}>
+            <div style={{ justifyContent: "end", alignContent: "middle" }}>
               <Menu
                 onClick={onClick}
                 // selectedKeys={[current]}
@@ -90,7 +107,7 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
                   fontWeight: 600,
                   justifyContent: "end",
                   height: "10vh",
-                  alignContent: "center",
+                  alignContent: "middle",
                 }}
               ></Menu>
             </div>

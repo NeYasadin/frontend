@@ -7,12 +7,16 @@ import CompanyAgentPage from "./pages/company-agent-page";
 import { QueryClientProvider } from "react-query";
 import queryClient from "./utils/queryClient";
 import CompanyAgentDetails from "./pages/company-agent-details";
+import CompanyAgentUpdate from "./pages/company-agent-update";
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
         <Switch>
+          <Route path="/company-agent/update/:id">
+            <CompanyAgentUpdate />
+          </Route>
           <Route path="/company-agent/details/:id">
             <CompanyAgentDetails />
           </Route>
