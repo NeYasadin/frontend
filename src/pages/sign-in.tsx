@@ -21,8 +21,9 @@ const SignIn: FC = () => {
       { params: { mail: emailCustomer, password: passwordCustomer } }
     );
 
+    console.log(customerData.customer);
     if (customerData.customer) {
-      // Go to customer page with that id.
+      history.push(`/customer/${customerData.customer.id}`);
     } else {
       messageApi.open({
         type: "error",
@@ -36,7 +37,7 @@ const SignIn: FC = () => {
     passwordCompanyAgent: string;
   }) => {
     const { emailCompanyAgent, passwordCompanyAgent } = values;
-
+    
     const { data: companyAgentData } = await axios.get(
       "http://localhost:3000/company-agent/authenticate",
       { params: { mail: emailCompanyAgent, password: passwordCompanyAgent } }

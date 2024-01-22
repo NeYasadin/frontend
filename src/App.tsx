@@ -9,6 +9,12 @@ import queryClient from "./utils/queryClient";
 import CompanyAgentDetails from "./pages/company-agent-details";
 import CompanyAgentUpdate from "./pages/company-agent-update";
 import CompanyCreate from "./pages/company-create";
+import CustomerPage from "./pages/customer-page";
+import CustomerDetails from "./pages/customer-details";
+import CustomerUpdate from "./pages/customer-update";
+import CustomerComplaintCreation from "./pages/create-complaint-page";
+import MyComplaints from "./pages/myComplaints-page";
+import TopFiveCustomer from "./pages/top-five-customer";
 
 function App() {
   return (
@@ -26,6 +32,24 @@ function App() {
           </Route>
           <Route path="/company-agent/:id">
             <CompanyAgentPage />
+          </Route>
+          <Route path="/customer/:id">
+          <CustomerPage />
+          </Route>
+          <Route path = "/customer-info/top-5-customer/:id">
+            <TopFiveCustomer />
+          </Route>
+          <Route path="/customer-info/detail/:id">
+            <CustomerDetails />
+          </Route>
+          <Route path="/customer-info/update/:id">
+            <CustomerUpdate />
+          </Route>
+          <Route path="/customer-complaint/creation/:id">
+            <CustomerComplaintCreation />
+          </Route>
+          <Route path="/customer-info/mycomplaints/:id">
+            <MyComplaints />
           </Route>
           <Route path="/signin">
             <SignIn />
