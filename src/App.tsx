@@ -15,12 +15,16 @@ import CustomerUpdate from "./pages/customer-update";
 import CustomerComplaintCreation from "./pages/create-complaint-page";
 import MyComplaints from "./pages/myComplaints-page";
 import TopFiveCustomer from "./pages/top-five-customer";
+import CompanyUpdate from "./pages/company-update";
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
         <Switch>
+          <Route path={"/company-agent/update-company/:id"}>
+            <CompanyUpdate />
+          </Route>
           <Route path={"/company-agent/create-company/:id"}>
             <CompanyCreate />
           </Route>
@@ -34,9 +38,9 @@ function App() {
             <CompanyAgentPage />
           </Route>
           <Route path="/customer/:id">
-          <CustomerPage />
+            <CustomerPage />
           </Route>
-          <Route path = "/customer-info/top-5-customer/:id">
+          <Route path="/customer-info/top-5-customer/:id">
             <TopFiveCustomer />
           </Route>
           <Route path="/customer-info/detail/:id">

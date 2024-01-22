@@ -58,8 +58,11 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
     if (key == "exit") {
       history.push("/");
     }
+    if (key == "update-company") {
+      history.push(`/company-agent/update-company/${companyAgentId}`);
+    }
     if (key == "create-company") {
-      history.push("/company-agent/create-company/" + companyAgentId);
+      history.push(`/company-agent/create-company/` + companyAgentId);
     }
     if (key == "update-company") {
       history.push("/company-agent/update-company");
