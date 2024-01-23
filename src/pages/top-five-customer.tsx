@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useParams } from "react-router-dom";
 import CustomerNavbar from "../components/customer-navbar";
 import { Row, Col, Table } from "antd";

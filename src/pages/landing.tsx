@@ -1,27 +1,32 @@
 import React from "react";
-import { Col, Layout, Row } from "antd";
+import { Col, Layout, Row, Table } from "antd";
 import "./landing.css";
 import LandingNavbar from "./landing-navbar";
+import { Link } from "react-router-dom";
+import "./landing.css";
+import { useQuery } from "react-query";
+import axios from "axios";
 
 const { Content } = Layout;
 
 const LandingPage: React.FC = () => {
   return (
-    <Layout style={{ margin: "0px", padding: "0px" }}>
+    <Layout style={{ margin: "0px", padding: "0px" }} className="landing-background">
       <LandingNavbar />
-      <Content style={{ padding: "30px" }}>
-        <Row
-          justify={"center"}
-          align={"middle"}
-          style={{ height: "100vh", width: "100%" }}
-        >
-          <Col>
-            <h1>Welcome to NeYaşadın!</h1>
+      <Content style={{ padding: "200px" }}>
+        <Row justify={"center"} align={"top"} style={{ height: "100vh", width: "100%" }}>
+          <Col xs={24}>
+            <h1 className="landing-text">
+              This platform is a free platform where people can express their opinions about companies without fear and companies can respond to criticism.!
+            </h1>
           </Col>
         </Row>
       </Content>
     </Layout>
   );
-};
+}
+
+
+  
 
 export default LandingPage;

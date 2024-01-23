@@ -1,3 +1,29 @@
 body {
   margin: 0px;
 }
+.custom-table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.custom-table .ant-table-content {
+  font-size: 16px;
+}
+
+.landing-background {
+  background-image: url('/src/assets/landing.png');
+  background-size: cover;
+  background-position: center;
+}
+.landing-text {
+  margin-top: -50px;
+  color: white; /* Metin rengini beyaz yapar */
+  font-size: 44px; /* Font boyutunu 24px yapar */
+  text-align: center; /* Metni ortalar */
+  margin: 0 auto; /* Otomatik marj ile merkeze alır */
+  max-width: 1200px; /* Maksimum genişliği sınırlar */
+}
+
+
+
+
