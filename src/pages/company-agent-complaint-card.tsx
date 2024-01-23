@@ -37,9 +37,9 @@ const CompanyAgentComplaintCard: FC<Props> = ({ complaint }) => {
 
     try {
       const response = await axios.post("http://localhost:3000/solution/", obj);
-      console.log(response);
       solutionForm.resetFields();
       queryClient.invalidateQueries("complaints");
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }

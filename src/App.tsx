@@ -19,12 +19,16 @@ import CompanyUpdate from "./pages/company-update";
 import CompanyInfo from "./pages/company-info";
 import SubscriptionCreate from "./pages/subscription-create";
 import Subscriptions from "./pages/subscriptions";
+import MostActiveCompanies from "./pages/most-active-companies";
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
         <Switch>
+          <Route path={"/most-active-companies"}>
+            <MostActiveCompanies />
+          </Route>
           <Route path={"/company-agent/company-subscriptions/:id"}>
             <Subscriptions />
           </Route>

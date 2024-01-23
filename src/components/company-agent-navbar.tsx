@@ -24,6 +24,11 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
           to: "/company-agent/update-company",
         },
         {
+          label: "Company Details",
+          key: "company-details",
+          to: "/company-agent/company-details",
+        },
+        {
           label: "Create Subscription",
           key: "createSubscription",
           to: "/company-agent/create-subscription",
@@ -33,11 +38,6 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
           key: "subscriptions",
           to: "/company-agent/company-subscriptions",
         },
-        {
-          label: "Company Details",
-          key: "company-details",
-          to: "/company-agent/company-details",
-        }
       ],
     },
     {
@@ -86,7 +86,7 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
     if (key == "account-details") {
       history.push(`/company-agent/details/${companyAgentId}`);
     }
-    if(key == "company-details"){
+    if (key == "company-details") {
       history.push(`/company-agent/company-details/${companyAgentId}`);
     }
     if (key == "update-account") {

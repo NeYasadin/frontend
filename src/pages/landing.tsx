@@ -1,27 +1,14 @@
 import React from "react";
-import { Button, Col, Layout, Row } from "antd";
-import { Link } from "react-router-dom";
+import { Col, Layout, Row } from "antd";
 import "./landing.css";
+import LandingNavbar from "./landing-navbar";
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 const LandingPage: React.FC = () => {
   return (
     <Layout style={{ margin: "0px", padding: "0px" }}>
-      <Header>
-        <Row justify={"end"}>
-          <Col xs={2}>
-            <Link to="/signin">
-              <Button>Sign In</Button>
-            </Link>
-          </Col>
-          <Col xs={2}>
-            <Link to="/signup">
-              <Button>Sign Up</Button>
-            </Link>
-          </Col>
-        </Row>
-      </Header>
+      <LandingNavbar />
       <Content style={{ padding: "30px" }}>
         <Row
           justify={"center"}
