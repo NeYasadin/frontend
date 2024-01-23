@@ -9,7 +9,7 @@ import { useQuery } from "react-query";
 const CompanyAgentPage: FC = () => {
   const { id } = useParams<{ id: string }>();
   const [page, setPage] = useState<number>(1);
-  const [pageSize, setPageSize] = useState<number>(10);
+  const [pageSize, setPageSize] = useState<number>(3);
 
   const fetchData = async () => {
     try {
