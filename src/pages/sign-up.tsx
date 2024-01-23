@@ -122,7 +122,7 @@ const SignUp: React.FC = () => {
             </Col>
           </Row>
         </Col>
-        <Col xs={24}>
+        <Col xs={8}>
           <Tabs activeKey={activeTab} onChange={handleTabChange}>
             <TabPane tab="Customer" key="customer">
               <Col className="p-20">
