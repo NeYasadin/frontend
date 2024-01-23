@@ -28,6 +28,11 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
           key: "subscription",
           to: "/company-agent/subscription",
         },
+        {
+          label: "Company Details",
+          key: "company-details",
+          to: "/company-agent/company-details",
+        }
       ],
     },
     {
@@ -72,6 +77,9 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
     }
     if (key == "account-details") {
       history.push(`/company-agent/details/${companyAgentId}`);
+    }
+    if(key == "company-details"){
+      history.push(`/company-agent/company-details/${companyAgentId}`);
     }
     if (key == "update-account") {
       console.log(`/company-agent/update/${companyAgentId}`);

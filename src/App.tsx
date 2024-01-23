@@ -16,6 +16,7 @@ import CustomerComplaintCreation from "./pages/create-complaint-page";
 import MyComplaints from "./pages/myComplaints-page";
 import TopFiveCustomer from "./pages/top-five-customer";
 import CompanyUpdate from "./pages/company-update";
+import CompanyInfo from "./pages/company-info";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/company-agent/details/:id">
             <CompanyAgentDetails />
+          </Route>
+          <Route path ="/company-agent/company-details/:id">
+            <CompanyInfo />
           </Route>
           <Route path="/company-agent/:id">
             <CompanyAgentPage />
