@@ -39,7 +39,9 @@ const MostActiveCompanies: FC = () => {
       <Content style={{ padding: "30px" }}>
         <Row justify={"space-between"} align={"middle"}>
           <Col xs={16} style={{ paddingBottom: "40px" }}>
-            <span style={{ fontSize: "24px" }}>Most Active Companies</span>
+            <span style={{ fontSize: "24px" }}>
+              Most Active Companies in the last 30 Days
+            </span>
           </Col>
           <Col xs={8}>
             <div

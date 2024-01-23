@@ -6,36 +6,32 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { LeftOutlined } from "@ant-design/icons";
 
-const AvgSolutionRating: FC = () => {
+const MostSolvedComplaints: FC = () => {
   const { Content } = Layout;
-  const getMostActiveCompanies = async () => {
+  const getMostSolutionWrittenCompanies = async () => {
     const response = await axios.get(
-      `http://localhost:3000/company/highest-rated-company`
+      `http://localhost:3000/company/most-solutions`
     );
-
+    console.log(response.data);
     return response.data;
   };
   const { data, isLoading } = useQuery(
-    "highestRatingCompanies",
-    getMostActiveCompanies
+    "highestsolvingwrittenCompanies",
+    getMostSolutionWrittenCompanies
   );
-  const mostRatedCompanies = data?.highestRatedCompanies.map(
-    (company: any) => ({
-      ...company,
-      avg_solution_rating: parseFloat(company.avg_solution_rating).toFixed(2),
-    })
-  );
+  const mostWrittenCompanies = data?.mostSolutionsWrittenByCompany;
+  console.log(mostWrittenCompanies);
 
   const columns = [
     {
       title: "Company Name",
-      dataIndex: "company_name",
-      key: "company_name",
+      dataIndex: "companyName",
+      key: "companyName",
     },
     {
-      title: "Average Solutions Rating",
-      dataIndex: "avg_solution_rating",
-      key: "avg_solution_rating",
+      title: "Solution Count",
+      dataIndex: "solutionCount",
+      key: "solutionCount",
     },
   ];
   return (
@@ -45,8 +41,7 @@ const AvgSolutionRating: FC = () => {
         <Row justify={"space-between"} align={"middle"}>
           <Col xs={16} style={{ paddingBottom: "40px" }}>
             <span style={{ fontSize: "24px" }}>
-              Companies that subscribe and have the highest solution average
-              with more than 5 solutions
+              Companies that Solve the Most Complaints of All Time
             </span>
           </Col>
           <Col xs={8}>
@@ -69,7 +64,7 @@ const AvgSolutionRating: FC = () => {
             {isLoading ? (
               <Spin />
             ) : (
-              <Table columns={columns} dataSource={mostRatedCompanies} />
+              <Table columns={columns} dataSource={mostWrittenCompanies} />
             )}
           </Col>
         </Row>
@@ -78,4 +73,4 @@ const AvgSolutionRating: FC = () => {
   );
 };
 
-export default AvgSolutionRating;
+export default MostSolvedComplaints;

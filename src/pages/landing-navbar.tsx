@@ -8,6 +8,9 @@ const LandingNavbar: FC = () => {
 
   const onFinish = (values: any) => {
     switch (values.statName) {
+      case "solvesthemostcomplaints":
+        history.push("/most-solved-complaints");
+        break;
       case "mostActiveCompanies":
         history.push("/most-active-companies");
         break;
@@ -34,6 +37,9 @@ const LandingNavbar: FC = () => {
                 </Select.Option>
                 <Select.Option value="avgRatingCompanies">
                   Highest Solution Average of Subscribers
+                </Select.Option>
+                <Select.Option value="solvesthemostcomplaints">
+                  Companies that Solve the Most Complaints
                 </Select.Option>
               </Select>
             </Form.Item>
