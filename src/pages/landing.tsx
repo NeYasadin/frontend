@@ -1,11 +1,8 @@
 import React from "react";
-import { Col, Layout, Row, Table } from "antd";
+import { Col, Layout, Row, } from "antd";
 import "./landing.css";
 import LandingNavbar from "./landing-navbar";
-import { Link } from "react-router-dom";
 import "./landing.css";
-import { useQuery } from "react-query";
-import axios from "axios";
 
 const { Content } = Layout;
 

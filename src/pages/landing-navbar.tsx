@@ -5,55 +5,53 @@ import { Link, useHistory } from "react-router-dom";
 const LandingNavbar: FC = () => {
   const { Header } = Layout;
   const history = useHistory();
+
   const onFinish = (values: any) => {
-    if (values.statName === "mostActiveCompanies") {
-      history.push("/most-active-companies");
+    switch (values.statName) {
+      case "mostActiveCompanies":
+        history.push("/most-active-companies");
+        break;
+      case "avgRatingCompanies":
+        history.push("/avg-most-rating-companies");
+        break;
     }
   };
+
   return (
     <Header style={{ height: "15vh" }}>
-      <Row justify={"end"} align={"middle"}>
-        <Col xs={20}>
-          <Row>
-            <Col xs={12}></Col>
-            <Col xs={12}></Col>
-          </Row>
+      <Row justify="space-between" align="middle">
+        <Col xs={24} md={4}>
+          <Link to="/">
+            <h2 style={{ textAlign: "center", color: "white" }}>NE YASADIN</h2>
+          </Link>
+        </Col>
+        <Col xs={24} md={12}>
           <Form style={{ padding: "20px" }} onFinish={onFinish}>
             <Form.Item name="statName">
-              <Select defaultValue={"Statistics"} style={{ width: "30%" }}>
-                <Select.Option
-                  onClick={(value: any) => console.log(value)}
-                  value="mostActiveCompanies"
-                >
+              <Select defaultValue="Statistics" style={{ width: "100%" }}>
+                <Select.Option value="mostActiveCompanies">
                   Most Active Companies
+                </Select.Option>
+                <Select.Option value="avgRatingCompanies">
+                  Highest Solution Average of Subscribers
                 </Select.Option>
               </Select>
             </Form.Item>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{ width: "100%" }}
+              >
                 Search For Statistics
               </Button>
             </Form.Item>
           </Form>
-
-          {/* <Link to="/most-active-companies">
-            <span
-              style={{
-                color: "white",
-                fontSize: "18px",
-                fontWeight: 600,
-              }}
-            >
-              Most Active Companies
-            </span>
-          </Link> */}
         </Col>
-        <Col xs={2}>
+        <Col xs={24} md={4} style={{ textAlign: "right" }}>
           <Link to="/signin">
-            <Button>Sign In</Button>
+            <Button style={{ marginRight: "10px" }}>Sign In</Button>
           </Link>
-        </Col>
-        <Col xs={2}>
           <Link to="/signup">
             <Button>Sign Up</Button>
           </Link>

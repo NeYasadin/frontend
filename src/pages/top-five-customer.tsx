@@ -21,6 +21,7 @@ const TopFiveCustomer: FC = () => {
     fetchDataCustomer
   );
   const tableData = meTooData?.complaints;
+  console.log(tableData);
   const columns = [
     {
       title: "Customer Name",

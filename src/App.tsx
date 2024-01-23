@@ -20,6 +20,7 @@ import CompanyInfo from "./pages/company-info";
 import SubscriptionCreate from "./pages/subscription-create";
 import Subscriptions from "./pages/subscriptions";
 import MostActiveCompanies from "./pages/most-active-companies";
+import AvgSolutionRating from "./pages/avg-solution-raitng-company";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
         <Switch>
           <Route path={"/most-active-companies"}>
             <MostActiveCompanies />
+          </Route>
+          <Route path={"/avg-most-rating-companies"}>
+            <AvgSolutionRating />
           </Route>
           <Route path={"/company-agent/company-subscriptions/:id"}>
             <Subscriptions />
