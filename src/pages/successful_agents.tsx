@@ -1,51 +1,51 @@
 import { FC } from "react";
 import { useParams } from "react-router-dom";
-import CustomerNavbar from "../components/customer-navbar";
+import CompanyAgentNavbar from "../components/company-agent-navbar";
 import { Row, Col, Table } from "antd";
 import axios from "axios";
 import { useQuery } from "react-query";
 
-const TopFiveCustomer: FC = () => {
+const SuccessfulAgents: FC = () => {
   const { id } = useParams<{ id: string }>();
 
-  const fetchDataCustomer = async () => {
+  const fetchDataCompanyAgents = async () => {
     const response = await axios.get(
-      "http://localhost:3000/complaint/me-too-customer"
+      "http://localhost:3000/company/resolved-all-complaints"
     );
     console.log(response.data);
     return response.data;
   };
 
   const { data: meTooData } = useQuery(
-    "meTooCountByCustomer",
-    fetchDataCustomer
+    "companiesResolvedAllComplaints",
+    fetchDataCompanyAgents
   );
-  const tableData = meTooData?.complaints;
+  const tableData = meTooData?.companiesResolvedAllComplaints;
   console.log(tableData);
   const columns = [
     {
-      title: "Customer Name",
-      dataIndex: "name",
-      key: "customerName",
+      title: "Customer Agent Name",
+      dataIndex: "companyAgentName",
+      key: "companyAgentName",
       sorter: (a: any, b: any) => (a.name > b.name ? 1 : -1),
     },
     {
-      title: "Complaint Count",
-      dataIndex: "meTooCount",
-      key: "complaintCount",
-      sorter: (a: any, b: any) => a.meTooCount - b.meTooCount,
+      title: "Company Name",
+      dataIndex: "companyName",
+      key: "companyName",
+      sorter: (a: any, b: any) => (a.name > b.name ? 1 : -1),
     },
   ];
 
   return (
     <Row>
       <Col span={24} style={{ marginBottom: "20px" }}>
-        <CustomerNavbar customerId={parseInt(id)} />
+        <CompanyAgentNavbar companyAgentId={parseInt(id)} />
       </Col>
       <Col span={24} style={{ marginBottom: "20px" }}>
         {" "}
         <span style={{ fontSize: "24px" }}>
-          Top Five Customers who Received the Most Complaint from meToo
+          Agents who Solve All Complaints About the Company
         </span>
       </Col>
       <Col span={24}>
@@ -55,4 +55,4 @@ const TopFiveCustomer: FC = () => {
   );
 };
 
-export default TopFiveCustomer;
+export default SuccessfulAgents;

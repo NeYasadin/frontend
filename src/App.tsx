@@ -23,6 +23,7 @@ import MostActiveCompanies from "./pages/most-active-companies";
 import AvgSolutionRating from "./pages/avg-solution-raitng-company";
 import MostSolvedComplaints from "./pages/most-solved-complaints";
 import CountBySector from "./pages/count-by-sector";
+import SuccessfulAgents from "./pages/successful_agents";
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path={"/count-by-sector"}>
             <CountBySector />
+          </Route>
+          <Route path={"/company-agent/successful-agents/:id"}>
+            <SuccessfulAgents />
           </Route>
           <Route path={"/company-agent/company-subscriptions/:id"}>
             <Subscriptions />

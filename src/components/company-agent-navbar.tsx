@@ -10,6 +10,11 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
   const history = useHistory();
   const items = [
     {
+      label: "Company Agents",
+      key: "company-agent",
+      to: "/company-agent/successful-agents",
+    },
+    {
       label: "Company",
       key: "company",
       children: [
@@ -81,7 +86,10 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
       history.push(`/company-agent/create-company/` + companyAgentId);
     }
     if (key == "subscription") {
-      history.push("/company-agent/subscription");
+      history.push(`/company-agent/subscription/${companyAgentId}`);
+    }
+    if (key == "company-agent") {
+      history.push(`/company-agent/successful-agents/${companyAgentId}`);
     }
     if (key == "account-details") {
       history.push(`/company-agent/details/${companyAgentId}`);
