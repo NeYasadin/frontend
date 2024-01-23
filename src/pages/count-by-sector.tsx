@@ -38,7 +38,7 @@ const CountBySector: FC = () => {
         <Row justify={"space-between"} align={"middle"}>
           <Col xs={16} style={{ paddingBottom: "40px" }}>
             <span style={{ fontSize: "24px" }}>
-              CSectors with the Most Complaints
+              Sectors with the Most Complaints
             </span>
           </Col>
           <Col xs={8}>
