@@ -19,12 +19,9 @@ type Props = {
   companyAgentId: number;
 };
 
-const ComplaintCard: FC<Props> = ({ complaint }) => {
+const CompanyAgentComplaintCard: FC<Props> = ({ complaint }) => {
   const [solutionForm] = Form.useForm();
 
-  const onFinishComment = (values: { content: string }) => {
-    console.log(values.content);
-  };
   const onFinishSolution = async (values: {
     content: string;
     guaranteeLevel: number;
@@ -69,12 +66,6 @@ const ComplaintCard: FC<Props> = ({ complaint }) => {
                   </Row>
                 </>
               ))}
-              &nbsp; &nbsp;
-              <Form onFinish={onFinishComment}>
-                <Form.Item name={"content"}>
-                  <Input placeholder="Add Comment" />
-                </Form.Item>
-              </Form>
             </Collapse.Panel>
 
             <Collapse.Panel header="Solutions" key={"solution"}>
@@ -122,4 +113,4 @@ const ComplaintCard: FC<Props> = ({ complaint }) => {
   );
 };
 
-export default ComplaintCard;
+export default CompanyAgentComplaintCard;

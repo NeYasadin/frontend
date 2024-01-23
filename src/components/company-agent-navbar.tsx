@@ -24,9 +24,14 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
           to: "/company-agent/update-company",
         },
         {
-          label: "Subscription",
-          key: "subscription",
-          to: "/company-agent/subscription",
+          label: "Create Subscription",
+          key: "createSubscription",
+          to: "/company-agent/create-subscription",
+        },
+        {
+          label: "Subscriptions",
+          key: "subscriptions",
+          to: "/company-agent/company-subscriptions",
         },
         {
           label: "Company Details",
@@ -63,14 +68,17 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
     if (key == "exit") {
       history.push("/");
     }
+    if (key == "createSubscription") {
+      history.push(`/company-agent/create-subscription/${companyAgentId}`);
+    }
+    if (key == "subscriptions") {
+      history.push(`/company-agent/company-subscriptions/${companyAgentId}`);
+    }
     if (key == "update-company") {
       history.push(`/company-agent/update-company/${companyAgentId}`);
     }
     if (key == "create-company") {
       history.push(`/company-agent/create-company/` + companyAgentId);
-    }
-    if (key == "update-company") {
-      history.push("/company-agent/update-company");
     }
     if (key == "subscription") {
       history.push("/company-agent/subscription");
@@ -82,7 +90,6 @@ const CompanyAgentNavbar: FC<Props> = ({ companyAgentId }) => {
       history.push(`/company-agent/company-details/${companyAgentId}`);
     }
     if (key == "update-account") {
-      console.log(`/company-agent/update/${companyAgentId}`);
       history.push(`/company-agent/update/${companyAgentId}`);
     }
   };

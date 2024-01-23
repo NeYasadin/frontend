@@ -39,25 +39,32 @@ const CompanyUpdate: FC = () => {
       employeeNum,
       sector,
     } = values;
-    const response = await axios.post(
-      `http://localhost:3000/company/${company.id}`,
-      {
-        name,
-        mail,
-        phoneNum,
-        description,
-        address,
-        country,
-        employeeNum,
-        sector,
-      }
-    );
 
-    messageApi.open({
-      type: "success",
-      content: "Company Created",
-    });
-    console.log(response.data);
+    try {
+      const response = await axios.patch(
+        `http://localhost:3000/company/${company.id}`,
+        {
+          name,
+          mail,
+          phoneNum,
+          description,
+          address,
+          country,
+          employeeNum,
+          sector,
+        }
+      );
+      messageApi.open({
+        type: "success",
+        content: "Company Updated",
+      });
+      console.log(response.data);
+    } catch (error) {
+      messageApi.open({
+        type: "error",
+        content: "Company Update Failed",
+      });
+    }
   };
 
   return (

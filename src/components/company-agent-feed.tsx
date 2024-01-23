@@ -1,7 +1,7 @@
 import { Row, Col } from "antd"; // Replace with your card component library
 import { FC } from "react";
 import { Complaint } from "../interfaces/models";
-import ComplaintCard from "../pages/complaint-card";
+import CompanyAgentComplaintCard from "../pages/company-agent-complaint-card";
 
 type Props = {
   complaints: Complaint[];
@@ -15,7 +15,7 @@ const CompanyAgentFeed: FC<Props> = ({ complaints, companyAgentId }) => {
         <Col xs={24} style={{ padding: "30px" }}>
           <Row align={"middle"} justify={"center"}>
             <Col xs={8}>
-              <ComplaintCard
+              <CompanyAgentComplaintCard
                 complaint={complaint}
                 companyAgentId={companyAgentId}
               />
