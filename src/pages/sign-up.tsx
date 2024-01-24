@@ -71,6 +71,13 @@ const SignUp: React.FC = () => {
     try {
       const response = await axios.post("http://localhost:3000/customer/", obj);
       console.log(response);
+      messageApi.open({
+        type: "success",
+        content: "Successfully signed up!",
+      });
+      setTimeout(() => {
+        history.push(`/signin`);
+      }, 2500);
     } catch (err) {
       console.log(err);
     }
