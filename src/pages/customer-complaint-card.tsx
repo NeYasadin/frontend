@@ -141,6 +141,11 @@ const CustomerComplaintCard: FC<Props> = ({ complaint, customerId }) => {
             <span>Complaint Solution Rating: {complaint.solutionRating}</span>
           </Col>
           <Col xs={24}>
+            <span>Me Too: {complaint.meToo}</span>
+            &nbsp;&nbsp;
+            <span>Misleading: {complaint.misleading}</span>
+          </Col>
+          <Col xs={24}>
             <Collapse>
               <Collapse.Panel header="Comments" key={"comment"}>
                 {complaint.comments.map((comment, index) => (
